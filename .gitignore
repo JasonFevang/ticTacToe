@@ -2,7 +2,8 @@
 
 #This file cannot be staged, thus not committed. It isn't neccessary to run, I deleted mine and it generated a new one, so
 #this file doesn't need to be tracked
-*.VC
+*.VC.VC.opendb
+*.VC.db
 
 
 # Compiled Object files
