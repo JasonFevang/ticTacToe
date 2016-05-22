@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
 	cout << "hello world!\n";
+	cout << "This will be a tic-tac-toe game" << endl;
 	system("pause");//Prompts for "press any key to continue..."
 	return 0;
 }
