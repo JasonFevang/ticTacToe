@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "All.h"
 //Returns an array storing the board
 marker* Board::getSpaces() {
 	return &spaces[0];

@@ -26,5 +26,8 @@
     <ClInclude Include="Board.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="All.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

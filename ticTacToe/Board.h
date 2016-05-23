@@ -1,6 +1,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "All.h"
+
 enum marker { empty, cross, knot };
 
 class Board {
