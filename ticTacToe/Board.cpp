@@ -1,7 +1,5 @@
 #include "All.h"
 
-using namespace std;
-
 //Initialize board values
 Board::Board() {
 	for (int i = 0; i < 9; i++) {
