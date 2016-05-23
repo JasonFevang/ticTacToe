@@ -3,8 +3,9 @@
 //to the repo. I'll pull it, then try and run it as well.
 #include "All.h"
 
-int main() {
 
+int main() {
+	return UnitTest::RunAllTests();
 	cout << "This will be a tic-tac-toe game" << endl;
 	Board newBoard;
 	newBoard.printBoard();
