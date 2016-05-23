@@ -6,14 +6,8 @@
 int main() {
 
 	cout << "This will be a tic-tac-toe game" << endl;
-	Board board;
-	for (int i = 0; i < 9; i++) {
-		cout << *(board.getSpaces() + i);
-		if ((i+1) % 3 == 0)
-			cout << endl;
-		else
-			cout << " ";
-	}
+	Board newBoard;
+	newBoard.printBoard();
 	system("pause");//Prompts for "press any key to continue..."
 	return 0;
 }
