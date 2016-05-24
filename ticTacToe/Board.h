@@ -3,10 +3,10 @@
 
 #include "All.h"
 
-enum marker { empty, cross, knot };
+enum marker { empt, cross, knot };
 
 class Board {
-private:
+private: 
 	marker spaces[9]; //Stores the nine spaces of the board
 	char crossSymbol = 'X';
 	char knotSymbol = 'O';
@@ -15,7 +15,7 @@ private:
 public:
 	Board(); //Initialize board values
 
-	marker* getSpaces(); //Returns a pointer to the first element of spaces
+	marker getSpace(int square); //Returns a given element of spaces from 0-8
 
 	void playSquare(int square, marker symbol); //Changes specified square to that symbol
 

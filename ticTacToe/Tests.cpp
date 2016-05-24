@@ -4,21 +4,24 @@ SUITE(ticTacToeGame)
 {
 	TEST(createGame)
 	{
+		marker targetGameboard[9] = { empt, empt, empt, empt, empt, empt, empt, empt, empt };
 		Game g;
-		marker* firstSpace = g.getBoard()->getSpaces();
+		
 		for (int i = 0; i < 9; i++) {
-			if (firstSpace+i == NULL)
-				cout << "failure!";
-			
-			CHECK_EQUAL(0, *(firstSpace + i));
+			marker symbol = g.getBoard()->getSpace(i);
+			CHECK_EQUAL(targetGameboard[i], symbol);
 		}
 	}
 
 	TEST(playMiddle)
 	{
+		marker targetGameboard[9] = { empt, empt, empt, empt, cross, empt, empt, empt, empt };
 		Game g;
 		g.getPlayer()->play(4);
-		marker* firstSpace = g.getBoard()->getSpaces();
-		CHECK_EQUAL(1, *(firstSpace + 4));
+
+		for (int i = 0; i < 9; i++) {
+			marker symbol = g.getBoard()->getSpace(i);
+			CHECK_EQUAL(targetGameboard[i], symbol);
+		}
 	}
 }

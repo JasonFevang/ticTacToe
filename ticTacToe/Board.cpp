@@ -3,13 +3,13 @@
 //Initialize board values
 Board::Board() {
 	for (int i = 0; i < 9; i++) {
-		spaces[i] = marker::empty;
+		spaces[i] = marker::empt;
 	}
 }
 
 //Returns an array storing the board
-marker* Board::getSpaces() {
-	return &spaces[0];
+marker Board::getSpace(int square) {
+	return spaces[square];
 }
 //Changes specified square to that symbol
 void Board::playSquare(int square, marker symbol) {
