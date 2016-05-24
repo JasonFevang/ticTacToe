@@ -7,7 +7,7 @@ enum marker { empty, cross, knot };
 
 class Board {
 private:
-	marker spaces[9];
+	marker spaces[9]; //Stores the nine spaces of the board
 	char crossSymbol = 'X';
 	char knotSymbol = 'O';
 

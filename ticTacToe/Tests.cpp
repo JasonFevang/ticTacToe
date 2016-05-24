@@ -18,7 +18,6 @@ SUITE(ticTacToeGame)
 	{
 		Game g;
 		g.getPlayer()->play(4);
-		g.getBoard()->printBoard();
 		marker* firstSpace = g.getBoard()->getSpaces();
 		CHECK_EQUAL(1, *(firstSpace + 4));
 	}

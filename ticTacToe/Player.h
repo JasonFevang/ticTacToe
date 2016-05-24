@@ -7,7 +7,7 @@ class Player
 {
 private:
 	Board *pboard; //Pointer to the current board
-	marker symbol;
+	marker symbol; //The symbol this player plays as, either cross or knot
 public:
 	Player(Board *board, marker symbol);
 	~Player();

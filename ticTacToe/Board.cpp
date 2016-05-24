@@ -13,7 +13,6 @@ marker* Board::getSpaces() {
 }
 //Changes specified square to that symbol
 void Board::playSquare(int square, marker symbol) {
-	cout << symbol << endl;
 	spaces[square] = symbol;
 }
 

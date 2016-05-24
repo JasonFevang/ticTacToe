@@ -1,7 +1,7 @@
 #include "All.h"
 
 
-
+//public constructor, instantiates board and player
 Game::Game(){
 	board = new Board;
 	player = new Player(board, cross);
