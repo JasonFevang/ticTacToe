@@ -1,10 +1,10 @@
 #Files I'm Adding
 *.VC.VC.opendb
 *.VC.db
-#*.log
-#*.tlog
-#*.idb
-#*.suo
+*.log
+*.tlog
+*.idb
+*.suo
 
 #These files store configurations for VS
 *.vcxproj
