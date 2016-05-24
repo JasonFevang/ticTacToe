@@ -12,7 +12,6 @@
 
 #because of http://stackoverflow.com/questions/846639/git-ignore-file-for-c-projects
 *.swp
-*.~
 #thumbs.db
 *.so
 *.dll
