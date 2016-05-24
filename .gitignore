@@ -9,8 +9,8 @@
 *.pdb
 
 #These files store configurations for VS
-*.vcxproj
-*.vcxproj.filters
+#*.vcxproj
+#*.vcxproj.filters
 
 #because of http://stackoverflow.com/questions/846639/git-ignore-file-for-c-projects
 *.swp
