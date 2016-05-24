@@ -1,10 +1,10 @@
 #Files I'm Adding
 *.VC.VC.opendb
 *.VC.db
-*.log
-*.tlog
-*.idb
-*.suo
+#*.log
+#*.tlog
+#*.idb
+#*.suo
 
 #These files store configurations for VS
 *.vcxproj
@@ -13,7 +13,7 @@
 #because of http://stackoverflow.com/questions/846639/git-ignore-file-for-c-projects
 *.swp
 *.~
-thumbs.db
+#thumbs.db
 *.so
 *.dll
 
