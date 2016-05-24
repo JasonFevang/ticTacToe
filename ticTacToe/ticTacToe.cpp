@@ -5,10 +5,7 @@
 
 
 int main() {
-	return UnitTest::RunAllTests();
-	cout << "This will be a tic-tac-toe game" << endl;
-	Board newBoard;
-	newBoard.printBoard();
+	UnitTest::RunAllTests();
 	system("pause");//Prompts for "press any key to continue..."
 	return 0;
 }
