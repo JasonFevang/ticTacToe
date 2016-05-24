@@ -6,11 +6,12 @@
 class Game
 {
 private:
-	Board board;
+	Board *board;
+	Player *player; //pointer to the player
 public:
 	Game();
-
-	Board getBoard(); //returns pointer to the game board
+	Player* getPlayer(); //returns pointer to player
+	Board* getBoard(); //returns game board
 };
 
 #endif //GAME_H

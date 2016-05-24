@@ -17,6 +17,8 @@ public:
 
 	marker* getSpaces(); //Returns a pointer to the first element of spaces
 
+	void playSquare(int square, marker symbol); //Changes specified square to that symbol
+
 	void printBoard(); //Prints board to console log
 };
 

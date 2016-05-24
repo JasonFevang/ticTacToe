@@ -11,6 +11,11 @@ Board::Board() {
 marker* Board::getSpaces() {
 	return &spaces[0];
 }
+//Changes specified square to that symbol
+void Board::playSquare(int square, marker symbol) {
+	cout << symbol << endl;
+	spaces[square] = symbol;
+}
 
 //Prints board to console log
 void Board::printBoard() {
