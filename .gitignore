@@ -5,6 +5,8 @@
 *.tlog
 *.idb
 *.suo
+*.ilk
+*.pdb
 
 #These files store configurations for VS
 *.vcxproj
