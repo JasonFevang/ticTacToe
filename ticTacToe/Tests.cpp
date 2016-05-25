@@ -24,4 +24,15 @@ SUITE(ticTacToeGame)
 			CHECK_EQUAL(targetGameboard[i], symbol);
 		}
 	}
+
+	TEST(horizonalWin)
+	{
+		Game g;
+		g.getPlayer()->play(0);
+		CHECK_EQUAL(empt, g.winner());
+		g.getPlayer()->play(1);
+		CHECK_EQUAL(empt, g.winner());
+		g.getPlayer()->play(2);
+		CHECK_EQUAL(cross, g.winner());
+	}
 }
