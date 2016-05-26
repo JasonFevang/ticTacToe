@@ -17,7 +17,7 @@ SUITE(ticTacToeGame)
 	{
 		marker targetGameboard[9] = { empt, empt, empt, empt, cross, empt, empt, empt, empt };
 		Game g;
-		g.getPlayer()->play(4);
+		g.getPlayerOne()->play(4);
 
 		for (int i = 0; i < 9; i++) {
 			marker symbol = g.getBoard()->getSpace(i);
@@ -29,73 +29,73 @@ SUITE(ticTacToeGame)
 		TEST(horizontalWin) //Check for three in a row horinzontally
 		{
 			Game g1;
-			g1.getPlayer()->play(0);
+			g1.getPlayerOne()->play(0);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(1);
+			g1.getPlayerOne()->play(1);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(2);
+			g1.getPlayerOne()->play(2);
 			CHECK_EQUAL(cross, g1.winner());
 
 			Game g2;
-			g2.getPlayer()->play(3);
+			g2.getPlayerOne()->play(3);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(4);
+			g2.getPlayerOne()->play(4);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(5);
+			g2.getPlayerOne()->play(5);
 			CHECK_EQUAL(cross, g2.winner());
 
 			Game g3;
-			g3.getPlayer()->play(6);
+			g3.getPlayerOne()->play(6);
 			CHECK_EQUAL(empt, g3.winner());
-			g3.getPlayer()->play(7);
+			g3.getPlayerOne()->play(7);
 			CHECK_EQUAL(empt, g3.winner());
-			g3.getPlayer()->play(8);
+			g3.getPlayerOne()->play(8);
 			CHECK_EQUAL(cross, g3.winner());
 		}
 
 		TEST(verticalWin) // Check for three in a row vertically
 		{
 			Game g1;
-			g1.getPlayer()->play(0);
+			g1.getPlayerOne()->play(0);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(3);
+			g1.getPlayerOne()->play(3);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(6);
+			g1.getPlayerOne()->play(6);
 			CHECK_EQUAL(cross, g1.winner());
 
 			Game g2;
-			g2.getPlayer()->play(7);
+			g2.getPlayerOne()->play(7);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(1);
+			g2.getPlayerOne()->play(1);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(4);
+			g2.getPlayerOne()->play(4);
 			CHECK_EQUAL(cross, g2.winner());
 
 			Game g3;
-			g3.getPlayer()->play(2);
+			g3.getPlayerOne()->play(2);
 			CHECK_EQUAL(empt, g3.winner());
-			g3.getPlayer()->play(5);
+			g3.getPlayerOne()->play(5);
 			CHECK_EQUAL(empt, g3.winner());
-			g3.getPlayer()->play(8);
+			g3.getPlayerOne()->play(8);
 			CHECK_EQUAL(cross, g3.winner());
 		}
 
 		TEST(diagonalWin) //Check for three in a row diagonally
 		{
 			Game g1;
-			g1.getPlayer()->play(0);
+			g1.getPlayerOne()->play(0);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(4);
+			g1.getPlayerOne()->play(4);
 			CHECK_EQUAL(empt, g1.winner());
-			g1.getPlayer()->play(8);
+			g1.getPlayerOne()->play(8);
 			CHECK_EQUAL(cross, g1.winner());
 
 			Game g2;
-			g2.getPlayer()->play(2);
+			g2.getPlayerOne()->play(2);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(4);
+			g2.getPlayerOne()->play(4);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getPlayer()->play(6);
+			g2.getPlayerOne()->play(6);
 			CHECK_EQUAL(cross, g2.winner());
 		}
 	}

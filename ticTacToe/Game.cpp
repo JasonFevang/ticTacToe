@@ -5,6 +5,7 @@
 Game::Game(){
 	board = new Board;
 	playerOne = new Player(board, cross);
+	playerTwo = new Player(board, knot);
 }
 
 
@@ -12,9 +13,14 @@ Game::Game(){
 Board* Game::getBoard() {
 	return board;
 }
-//returns pointer to player
-Player* Game::getPlayer() {
+//returns pointer to playerOne
+Player* Game::getPlayerOne() {
 	return playerOne;
+}
+
+//returns pointer to playerTwo
+Player* Game::getPlayerTwo() {
+	return playerTwo;
 }
 
 //returns the marker of who won the game that turn. Empty means no one
