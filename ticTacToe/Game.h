@@ -13,7 +13,7 @@ public:
 	Game();//public constructor, instantiates board and player
 
 	Player* getPlayer(); //returns pointer to player
-	Board* getBoard(); //returns game board
+	Board* getBoard(); //returns pointer to game board
 
 	marker winner(); //returns the marker of who won the game that turn. Empty means no one
 };
