@@ -26,7 +26,6 @@ SUITE(ticTacToeGame)
 	}
 
 	SUITE(winCheck) {
-
 		TEST(horizontalWin) //Check for three in a row horinzontally
 		{
 			Game g1;
@@ -63,18 +62,14 @@ SUITE(ticTacToeGame)
 			CHECK_EQUAL(empt, g1.winner());
 			g1.getPlayer()->play(6);
 			CHECK_EQUAL(cross, g1.winner());
-			g1.getBoard()->printBoard();
 
 			Game g2;
+			g2.getPlayer()->play(7);
+			CHECK_EQUAL(empt, g2.winner());
 			g2.getPlayer()->play(1);
 			CHECK_EQUAL(empt, g2.winner());
-			g2.getBoard()->printBoard();
 			g2.getPlayer()->play(4);
-			CHECK_EQUAL(empt, g2.winner());
-			g2.getBoard()->printBoard();
-			g2.getPlayer()->play(7);
 			CHECK_EQUAL(cross, g2.winner());
-			g2.getBoard()->printBoard();
 
 			Game g3;
 			g3.getPlayer()->play(2);
@@ -85,7 +80,7 @@ SUITE(ticTacToeGame)
 			CHECK_EQUAL(cross, g3.winner());
 		}
 
-		/*TEST(diagonalWin) //Check for three in a row diagonally
+		TEST(diagonalWin) //Check for three in a row diagonally
 		{
 			Game g1;
 			g1.getPlayer()->play(0);
@@ -102,6 +97,6 @@ SUITE(ticTacToeGame)
 			CHECK_EQUAL(empt, g2.winner());
 			g2.getPlayer()->play(6);
 			CHECK_EQUAL(cross, g2.winner());
-		}*/
+		}
 	}
 }
