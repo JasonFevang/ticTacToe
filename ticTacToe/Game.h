@@ -18,7 +18,7 @@ class Game
 {
 private:
 	Board *board; //pointer to the board being played on
-	Player *player; //pointer to the player
+	Player *playerOne; //pointer to the player
 	bool playerFirst; //True means player goes first and is crosses
 
 	bool checkThree(const int[]); //Checks three squares on the board to be equal and not empt

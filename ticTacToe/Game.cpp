@@ -4,7 +4,7 @@
 //public constructor, instantiates board and player
 Game::Game(){
 	board = new Board;
-	player = new Player(board, cross);
+	playerOne = new Player(board, cross);
 }
 
 
@@ -14,7 +14,7 @@ Board* Game::getBoard() {
 }
 //returns pointer to player
 Player* Game::getPlayer() {
-	return player;
+	return playerOne;
 }
 
 //returns the marker of who won the game that turn. Empty means no one
