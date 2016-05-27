@@ -98,5 +98,23 @@ SUITE(ticTacToeGame)
 			g2.getPlayerOne()->play(6);
 			CHECK_EQUAL(cross, g2.winner());
 		}
+
+		TEST(mixedSymbolWinCheck)
+		{
+			Game g;
+			g.getPlayerOne()->play(4);
+			g.getPlayerTwo()->play(3);
+			g.getPlayerTwo()->play(5);
+			CHECK_EQUAL(empt, g.winner());
+			g.getPlayerOne()->play(0);
+			g.getPlayerTwo()->play(1);
+			g.getPlayerOne()->play(2);
+			CHECK_EQUAL(empt, g.winner());
+			g.getPlayerTwo()->play(6);
+			g.getPlayerOne()->play(7);
+			g.getPlayerTwo()->play(8);
+			CHECK_EQUAL(empt, g.winner());
+		}
+
 	}
 }

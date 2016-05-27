@@ -43,5 +43,5 @@ bool Game::checkThree(const int boardIndexes[]) {
 			return true;
 		}
 	}
-	else return false;
+	return false;
 }
