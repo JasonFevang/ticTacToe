@@ -16,3 +16,15 @@ Player::~Player()
 void Player::play(int square) {
 	pboard->playSquare(square, symbol);
 }
+
+//returns the symbol of the current player
+marker Player::getSymbol() {
+	return symbol;
+}
+
+//Gets the Player's square 
+int Player::choice() {
+	int choice;
+	cin >> choice;
+	return choice;
+}

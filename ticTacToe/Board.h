@@ -20,6 +20,7 @@ public:
 	void playSquare(int square, marker symbol); //Changes specified square to that symbol
 
 	void printBoard(); //Prints board to console log
+
 };
 
 #endif //BOARD_H

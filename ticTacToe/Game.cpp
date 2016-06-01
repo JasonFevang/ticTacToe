@@ -37,6 +37,54 @@ marker Game::winner() {
 	else return empt;
 }
 
+
+
+
+
+void Game::playGame(int turns) {
+	while (turns < 10 && winner() == empt) {
+		getBoard()->printBoard();
+		if (turns % 2 != 0) {
+			cout << "Player One, what square would you like to play on? (1-9): ";
+			int choice = playerOne->choice();
+			if (board->getSpace(choice - 1) != empt) {
+				cout << "That space is already taken. Please choose an open square" << endl;
+				playGame(turns);
+			}
+			else {
+				marker symbol = playerOne->getSymbol();
+				board->playSquare(choice - 1, symbol);
+				getBoard()->printBoard();
+				marker winner = this->winner();
+				if (winner != empt) {
+					cout << "Winner: " << winner << endl;
+				}
+				turns++;
+				playGame(turns);
+			}
+		}
+		else {
+			cout << "Player Two, what square would you like to play on? (1-9): ";
+			int choice = playerTwo->choice();
+			if (board->getSpace(choice - 1) != empt) {
+				cout << "That space is already taken. Please choose an open square" << endl;
+				playGame(turns);
+			}
+			else {
+				marker symbol = playerTwo->getSymbol();
+				board->playSquare(choice - 1, symbol);
+				getBoard()->printBoard();
+				marker winner = this->winner();
+				if (winner != empt) {
+					cout << "Winner: " << winner << endl;
+				}
+				turns++;
+				playGame(turns);
+			}
+		}
+	}
+}
+
 bool Game::checkThree(const int boardIndexes[]) {
 	if (board->getSpace(boardIndexes[0]) != empt && board->getSpace(boardIndexes[1]) != empt && board->getSpace(boardIndexes[2]) != empt) {
 		if ((board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[1])) && (board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[2]))) {

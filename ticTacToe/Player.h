@@ -12,6 +12,10 @@ public:
 	Player(Board *board, marker symbol);
 	~Player();
 
+	marker getSymbol(); //returns the symbol of the current player
+
+	int choice(); //returns the position that the player last played in
+
 	void play(int square); //Plays a cross on the specified square 1-9
 };
 
