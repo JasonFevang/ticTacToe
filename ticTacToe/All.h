@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Board.h"
 #include "UnitTest++.h"
+#include "stdlib.h"
 
 
 using namespace std;

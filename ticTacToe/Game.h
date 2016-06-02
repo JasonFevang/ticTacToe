@@ -24,7 +24,7 @@ private:
 
 	bool checkThree(const int[]); //Checks three squares on the board to be equal and not empt
 public:
-	Game();//public constructor, instantiates board and player
+	Game();//public constructor, instantiates board and players
 
 	Player* getPlayerOne(); //returns pointer to playerOne
 	Player* getPlayerTwo(); //returns pointer to playerTwo
@@ -32,6 +32,9 @@ public:
 	Board* getBoard(); //returns pointer to game board
 
 	marker winner(); //returns the marker of who won the game that turn. Empty means no one
+
+	void playGame(int turns); //Order of events
+
 };
 
 #endif //GAME_H
