@@ -63,7 +63,7 @@ void Game::playGame(int turns) {
 				playGame(turns);
 			}
 		}
-		else {
+		else if (turns % 2 == 0) {
 			cout << "Player Two, what square would you like to play on? (1-9): ";
 			int choice = playerTwo->choice();
 			if (board->getSpace(choice - 1) != empt) {
@@ -82,6 +82,9 @@ void Game::playGame(int turns) {
 				playGame(turns);
 			}
 		}
+	}
+	if (turns >= 9 && winner() == empt) {
+		cout << "Winner: " << winner() << ". Game over." << endl;
 	}
 }
 

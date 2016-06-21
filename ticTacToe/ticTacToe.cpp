@@ -18,8 +18,20 @@ int main() {
 	if (choice == 1) {
 		Game game;
 		game.playGame(1);
-	
 	}
-	system("pause");//Prompts for "press any key to continue..."
+	else if (choice == 2) {
+		Game game;
+		int order;
+		cout << "Would you like to go first or second? (1 or 2): ";
+		cin >> order;
+		if (order == 1) {
+
+		}
+	}
+	else if (choice == 3) {
+
+	}
+	
+system		("pause");//Prompts for "press any key to continue..."
 	return 0;
 }

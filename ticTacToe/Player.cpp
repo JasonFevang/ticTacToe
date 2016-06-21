@@ -2,9 +2,10 @@
 
 
 
-Player::Player(Board *board, marker symbol){
+Player::Player(Board *board, marker symbol, bool isAI){
 	pboard = board; //dependancy injection
-	this->symbol = symbol; //Requires this-> because the symbol class variable is the same name as the constructor parameter
+	this->symbol = symbol;
+	this->isAI = isAI; //Sets the player to be an AI or human
 }
 
 //Player destructor, will develop later
