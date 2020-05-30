@@ -11,7 +11,7 @@ private:
 	bool isAI; //Decides if the players are AIs or humans
 public:
 	Player(Board *board, marker symbol, bool isAI = false);
-	~Player();
+	~Player(); // Deletes created players at end of game to prevent memory leaks
 
 	marker getSymbol(); //returns the symbol of the current player
 

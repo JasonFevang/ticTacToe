@@ -42,9 +42,11 @@ marker Game::winner() {
 
 
 void Game::playGame(int turns) {
-	while (turns < 10 && winner() == empt) {
-		getBoard()->printBoard();
+	while (turns < 9 && winner() == empt) {
+
+		// Process turns for player 1
 		if (turns % 2 != 0) {
+
 			cout << "Player One, what square would you like to play on? (1-9): ";
 			int choice = playerOne->choice();
 			if (board->getSpace(choice - 1) != empt) {
@@ -54,7 +56,6 @@ void Game::playGame(int turns) {
 			else {
 				marker symbol = playerOne->getSymbol();
 				board->playSquare(choice - 1, symbol);
-				getBoard()->printBoard();
 				marker winner = this->winner();
 				if (winner != empt) {
 					cout << "Winner: " << winner << endl;
@@ -63,6 +64,8 @@ void Game::playGame(int turns) {
 				playGame(turns);
 			}
 		}
+
+		// Process turns for player 2
 		else if (turns % 2 == 0) {
 			cout << "Player Two, what square would you like to play on? (1-9): ";
 			int choice = playerTwo->choice();
@@ -72,8 +75,7 @@ void Game::playGame(int turns) {
 			}
 			else {
 				marker symbol = playerTwo->getSymbol();
-				board->playSquare(choice - 1, symbol);
-				getBoard()->printBoard();
+				board->playSquare(choice - 1, symbol);;
 				marker winner = this->winner();
 				if (winner != empt) {
 					cout << "Winner: " << winner << endl;
@@ -82,12 +84,17 @@ void Game::playGame(int turns) {
 				playGame(turns);
 			}
 		}
+		getBoard()->printBoard();
 	}
+
+	// Declare tie if three in a row has not been achieved
 	if (turns >= 9 && winner() == empt) {
-		cout << "Winner: " << winner() << ". Game over." << endl;
+		getBoard()->printBoard();
+		cout << "Tie. Game over." << endl;
 	}
 }
 
+// Check if three squares in a row have been marked by one player's symbol to determine winner of game
 bool Game::checkThree(const int boardIndexes[]) {
 	if (board->getSpace(boardIndexes[0]) != empt && board->getSpace(boardIndexes[1]) != empt && board->getSpace(boardIndexes[2]) != empt) {
 		if ((board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[1])) && (board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[2]))) {

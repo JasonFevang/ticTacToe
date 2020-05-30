@@ -8,9 +8,10 @@ Player::Player(Board *board, marker symbol, bool isAI){
 	this->isAI = isAI; //Sets the player to be an AI or human
 }
 
-//Player destructor, will develop later
+// Player destructor, deltes memory allocation to pboard
 Player::~Player()
 {
+	delete pboard;
 }
 
 //Plays a symbol on the specified square 1-9

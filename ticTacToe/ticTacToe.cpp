@@ -6,7 +6,6 @@
 
 
 int main() {
-	UnitTest::RunAllTests();
 	int choice;
 	cout << "Welcome to Tic-Tac-Toe v 0.9 by Jason Fevang and Kevin Gnanaraj" << endl;
 	cout << "Would you like to play against another person or against an AI, or would you like to watch two AIs play each other?:" << endl;
