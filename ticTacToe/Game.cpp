@@ -38,11 +38,11 @@ marker Game::winner() {
 }
 
 
-
-
-
 void Game::playGame(int turns) {
-	while (turns < 9 && winner() == empt) {
+
+	//getBoard()->printBoard();
+
+	while (turns < 10 && winner() == empt) {
 
 		// Process turns for player 1
 		if (turns % 2 != 0) {
@@ -61,12 +61,12 @@ void Game::playGame(int turns) {
 					cout << "Winner: " << winner << endl;
 				}
 				turns++;
-				playGame(turns);
+				cout << "Turn: " << turns << endl;
 			}
 		}
 
 		// Process turns for player 2
-		else if (turns % 2 == 0) {
+		else if (turns % 2 == 0 && turns < 10) {
 			cout << "Player Two, what square would you like to play on? (1-9): ";
 			int choice = playerTwo->choice();
 			if (board->getSpace(choice - 1) != empt) {
@@ -81,17 +81,20 @@ void Game::playGame(int turns) {
 					cout << "Winner: " << winner << endl;
 				}
 				turns++;
-				playGame(turns);
+				cout << "Turn: " << turns << endl;
 			}
 		}
-		getBoard()->printBoard();
+
+		// Declare tie if three in a row has not been achieved
+		else 
+		{
+			cout << "Tie. Game over." << endl;
+		}
+		playGame(turns);
+
 	}
 
-	// Declare tie if three in a row has not been achieved
-	if (turns >= 9 && winner() == empt) {
-		getBoard()->printBoard();
-		cout << "Tie. Game over." << endl;
-	}
+	
 }
 
 // Check if three squares in a row have been marked by one player's symbol to determine winner of game

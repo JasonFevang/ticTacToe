@@ -13,21 +13,24 @@ int main() {
 	cout << "2: Play against an AI" << endl;
 	cout << "3: Watch two AIs play each other" << endl;
 	cin >> choice;
-	Game game;
-	if (choice == 1) {
+	if (choice == 1) 
+	{
 		Game game;
 		game.playGame(1);
 	}
-	else if (choice == 2) {
+	else if (choice == 2)
+	{
 		Game game;
 		int order;
 		cout << "Would you like to go first or second? (1 or 2): ";
 		cin >> order;
-		if (order == 1) {
+		if (order == 1)
+		{
 
 		}
 	}
-	else if (choice == 3) {
+	else if (choice == 3)
+	{
 
 	}
 	
