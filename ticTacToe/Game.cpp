@@ -40,12 +40,15 @@ marker Game::winner() {
 
 void Game::playGame(int turns) {
 
-	//getBoard()->printBoard();
+	while (turns < 11 && winner() == empt) {
 
-	while (turns < 10 && winner() == empt) {
+		// Clear screen before printing board to clean up terminal/console window, works only on Windows
+		system("cls");
+		getBoard()->printBoard();
+		cout << endl;
 
 		// Process turns for player 1
-		if (turns % 2 != 0) {
+		if (turns % 2 != 0 && turns < 10) {
 
 			cout << "Player One, what square would you like to play on? (1-9): ";
 			int choice = playerOne->choice();
@@ -58,10 +61,10 @@ void Game::playGame(int turns) {
 				board->playSquare(choice - 1, symbol);
 				marker winner = this->winner();
 				if (winner != empt) {
-					cout << "Winner: " << winner << endl;
+					cout << "Winner: Player " << winner << endl;
+					getBoard()->printBoard();
 				}
 				turns++;
-				cout << "Turn: " << turns << endl;
 			}
 		}
 
@@ -78,10 +81,10 @@ void Game::playGame(int turns) {
 				board->playSquare(choice - 1, symbol);;
 				marker winner = this->winner();
 				if (winner != empt) {
-					cout << "Winner: " << winner << endl;
+					cout << "Winner: Player " << winner << endl;
+					getBoard()->printBoard();
 				}
 				turns++;
-				cout << "Turn: " << turns << endl;
 			}
 		}
 
@@ -89,8 +92,9 @@ void Game::playGame(int turns) {
 		else 
 		{
 			cout << "Tie. Game over." << endl;
+			getBoard()->printBoard();
+			break;
 		}
-		playGame(turns);
 
 	}
 
