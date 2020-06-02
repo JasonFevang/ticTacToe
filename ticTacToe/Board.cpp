@@ -11,6 +11,7 @@ Board::Board() {
 marker Board::getSpace(int square) {
 	return spaces[square];
 }
+
 //Changes specified square to that symbol
 void Board::playSquare(int square, marker symbol) {
 	spaces[square] = symbol;
@@ -39,9 +40,15 @@ void Board::printBoard() {
 //converts a marker to it's designated symbol
 char Board::symbol(marker input) {
 	if (input == marker::cross)
+	{
 		return crossSymbol;
+	}
 	else if (input == marker::knot)
+	{
 		return knotSymbol;
+	}
 	else 
+	{
 		return ' ';
+	}
 }

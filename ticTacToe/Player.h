@@ -8,9 +8,10 @@ class Player
 private:
 	Board *pboard; //Pointer to the current board
 	marker symbol; //The symbol this player plays as, either cross or knot
+	bool isAI; //Decides if the players are AIs or humans
 public:
-	Player(Board *board, marker symbol);
-	~Player();
+	Player(Board *board, marker symbol, bool isAI = false);
+	~Player(); // Deletes created players at end of game to prevent memory leaks
 
 	marker getSymbol(); //returns the symbol of the current player
 

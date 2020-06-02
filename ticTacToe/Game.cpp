@@ -38,13 +38,18 @@ marker Game::winner() {
 }
 
 
-
-
-
 void Game::playGame(int turns) {
-	while (turns < 10 && winner() == empt) {
+
+	while (turns < 11 && winner() == empt) {
+
+		// Clear screen before printing board to clean up terminal/console window, works only on Windows
+		system("cls");
 		getBoard()->printBoard();
-		if (turns % 2 != 0) {
+		cout << endl;
+
+		// Process turns for player 1
+		if (turns % 2 != 0 && turns < 10) {
+
 			cout << "Player One, what square would you like to play on? (1-9): ";
 			int choice = playerOne->choice();
 			if (board->getSpace(choice - 1) != empt) {
@@ -54,16 +59,17 @@ void Game::playGame(int turns) {
 			else {
 				marker symbol = playerOne->getSymbol();
 				board->playSquare(choice - 1, symbol);
-				getBoard()->printBoard();
 				marker winner = this->winner();
 				if (winner != empt) {
-					cout << "Winner: " << winner << endl;
+					cout << "Winner: Player " << winner << endl;
+					getBoard()->printBoard();
 				}
 				turns++;
-				playGame(turns);
 			}
 		}
-		else {
+
+		// Process turns for player 2
+		else if (turns % 2 == 0 && turns < 10) {
 			cout << "Player Two, what square would you like to play on? (1-9): ";
 			int choice = playerTwo->choice();
 			if (board->getSpace(choice - 1) != empt) {
@@ -72,19 +78,30 @@ void Game::playGame(int turns) {
 			}
 			else {
 				marker symbol = playerTwo->getSymbol();
-				board->playSquare(choice - 1, symbol);
-				getBoard()->printBoard();
+				board->playSquare(choice - 1, symbol);;
 				marker winner = this->winner();
 				if (winner != empt) {
-					cout << "Winner: " << winner << endl;
+					cout << "Winner: Player " << winner << endl;
+					getBoard()->printBoard();
 				}
 				turns++;
-				playGame(turns);
 			}
 		}
+
+		// Declare tie if three in a row has not been achieved
+		else 
+		{
+			cout << "Tie. Game over." << endl;
+			getBoard()->printBoard();
+			break;
+		}
+
 	}
+
+	
 }
 
+// Check if three squares in a row have been marked by one player's symbol to determine winner of game
 bool Game::checkThree(const int boardIndexes[]) {
 	if (board->getSpace(boardIndexes[0]) != empt && board->getSpace(boardIndexes[1]) != empt && board->getSpace(boardIndexes[2]) != empt) {
 		if ((board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[1])) && (board->getSpace(boardIndexes[0]) == board->getSpace(boardIndexes[2]))) {
