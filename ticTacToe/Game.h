@@ -24,7 +24,7 @@ private:
 
 	bool checkThree(const int[]); //Checks three squares on the board to be equal and not empt
 public:
-	Game();//public constructor, instantiates board and players
+	Game(int AIs = 0, int order = 1);//public constructor, instantiates board and players
 
 	Player* getPlayerOne(); //returns pointer to playerOne
 	Player* getPlayerTwo(); //returns pointer to playerTwo

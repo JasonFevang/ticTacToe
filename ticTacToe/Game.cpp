@@ -1,11 +1,33 @@
 #include "All.h"
 
 
-//public constructor, instantiates board and player
-Game::Game(){
+//public constructor, instantiates board and player, order of turns in AI game, and which player is AI-controlled
+Game::Game(int AIs, int order)
+{
 	board = new Board;
-	playerOne = new Player(board, cross);
-	playerTwo = new Player(board, knot);
+	if (AIs == 1)
+	{
+		if (order == 1)
+		{
+			playerOne = new Player(board, cross);
+			playerTwo = new Player(board, knot, true);
+		}
+		else
+		{
+			playerOne = new Player(board, cross, true);
+			playerTwo = new Player(board, knot);
+		}
+	}
+	else if (AIs == 2)
+	{
+		playerOne = new Player(board, cross, true);
+		playerTwo = new Player(board, knot, true);
+	}
+	else
+	{
+		playerOne = new Player(board, cross);
+		playerTwo = new Player(board, knot);
+	}
 }
 
 
