@@ -66,10 +66,13 @@ void Game::playGame(int turns) {
 	bool p1isAI = playerOne->isAIPlayer();
 	bool p2isAI = playerTwo->isAIPlayer();
 
+	marker winner = this->winner();
+
 	//cout << p1isAI << endl;
 	//cout << p2isAI << endl;
 
-	while (turns < 11 && winner() == empt) {
+	while (turns < 10 && winner == empt)
+	{
 
 		// Clear screen before printing board to clean up terminal/console window, works only on Windows
 		system("cls");
@@ -82,19 +85,20 @@ void Game::playGame(int turns) {
 			// AI check for player 1
 			if (p1isAI != true)
 			{
+				cout << "Turn: " << turns << endl;
 				cout << "Player One, what square would you like to play on? (1-9): ";
 				int choice = playerOne->choice();
 				if (board->getSpace(choice - 1) != empt) {
-					cout << "That space is already taken. Please choose an open square" << endl;
 					playGame(turns);
 				}
-				else {
+				else
+				{
 					marker symbol = playerOne->getSymbol();
 					board->playSquare(choice - 1, symbol);
-					marker winner = this->winner();
-					if (winner != empt) {
-						cout << "Winner: Player " << winner << endl;
-						getBoard()->printBoard();
+					winner = this->winner();
+					if (winner != empt)
+					{
+						break;
 					}
 					turns++;
 				}
@@ -106,13 +110,14 @@ void Game::playGame(int turns) {
 				{
 					playGame(turns);
 				}
-				else {
+				else
+				{
 					marker symbol = playerOne->getSymbol();
 					board->playSquare(choice, symbol);
-					marker winner = this->winner();
-					if (winner != empt) {
-						cout << "Winner: Player " << winner << endl;
-						getBoard()->printBoard();
+					winner = this->winner();
+					if (winner != empt)
+					{
+						break;
 					}
 					turns++;
 				}
@@ -125,24 +130,22 @@ void Game::playGame(int turns) {
 			// AI check for player 2
 			if (p2isAI != true)
 			{
+				cout << "Turn: " << turns << endl;
 				cout << "Player Two, what square would you like to play on? (1-9): ";
 				int choice = playerTwo->choice();
 				if (board->getSpace(choice - 1) != empt)
 				{
-					cout << "That space is already taken. Please choose an open square" << endl;
 					playGame(turns);
 				}
 				else
 				{
 					marker symbol = playerTwo->getSymbol();
-					board->playSquare(choice - 1, symbol);;
-					marker winner = this->winner();
+					board->playSquare(choice - 1, symbol);
+					winner = this->winner();
 					if (winner != empt)
 					{
-						cout << "Winner: Player " << winner << endl;
-						getBoard()->printBoard();
+						break;
 					}
-
 					turns++;
 				}
 			}
@@ -156,30 +159,39 @@ void Game::playGame(int turns) {
 				else
 				{
 					marker symbol = playerTwo->getSymbol();
-					board->playSquare(choice, symbol);;
-					marker winner = this->winner();
+					board->playSquare(choice, symbol);
+					winner = this->winner();
 					if (winner != empt)
 					{
-						cout << "Winner: Player " << winner << endl;
-						getBoard()->printBoard();
+						break;
 					}
-
 					turns++;
 				}
 			}
 		}
-
-		// Declare tie if three in a row has not been achieved
-		else 
+		else
 		{
-			cout << "Tie. Game over." << endl;
-			getBoard()->printBoard();
 			break;
 		}
-
 	}
 
-	
+	// Declare tie if three in a row has not been achieved
+ 	if (turns == 10 && winner == empt)
+	{
+		cout << "Tie. Game over. Turn " << turns << endl;
+		getBoard()->printBoard();
+		playerOne->~Player();
+		playerTwo->~Player();
+		system("pause");//Prompts for "press any key to continue..."
+	}
+	else if (winner != empt)
+	{
+		cout << "Winner: Player " << winner << " Turns: " << turns << endl;
+		getBoard()->printBoard();
+		playerOne->~Player();
+		playerTwo->~Player();
+		system("pause");//Prompts for "press any key to continue..."
+	}
 }
 
 // Check if three squares in a row have been marked by one player's symbol to determine winner of game

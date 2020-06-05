@@ -6,6 +6,7 @@
 
 
 int main() {
+	srand(time(NULL)); // Seeds randomness based on time
 	int choice;
 	cout << "Welcome to Tic-Tac-Toe v 0.9 by Jason Fevang and Kevin Gnanaraj" << endl;
 	cout << "Would you like to play against another person or against an AI, or would you like to watch two AIs play each other?:" << endl;
@@ -45,6 +46,7 @@ int main() {
 	else if (choice == 3)
 	{
 		Game game(2);
+		game.playGame(1);
 	}
 	else
 	{

@@ -40,7 +40,6 @@ bool Player::isAIPlayer()
 // Returns a random square
 int Player::randomAI()
 {
-	srand(time(NULL)); // Seeds randomness based on time
 	int rand_num = rand() % 9; // Generates a random number between 1 and 9
 	return rand_num;
 }
