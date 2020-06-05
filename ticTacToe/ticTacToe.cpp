@@ -31,11 +31,13 @@ int main() {
 		if (order == 2)
 		{
 			Game game(1, 2);
+			game.playGame(1);
 		}
 		// Makes the player go first, and gives default symbol of Cross
 		else
 		{
 			Game game(1);
+			game.playGame(1);
 		}
 	}
 

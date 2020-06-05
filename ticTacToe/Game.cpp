@@ -62,6 +62,13 @@ marker Game::winner() {
 
 void Game::playGame(int turns) {
 
+	// Check AI status of both players and store in a variable
+	bool p1isAI = playerOne->isAIPlayer();
+	bool p2isAI = playerTwo->isAIPlayer();
+
+	//cout << p1isAI << endl;
+	//cout << p2isAI << endl;
+
 	while (turns < 11 && winner() == empt) {
 
 		// Clear screen before printing board to clean up terminal/console window, works only on Windows
@@ -72,41 +79,93 @@ void Game::playGame(int turns) {
 		// Process turns for player 1
 		if (turns % 2 != 0 && turns < 10) {
 
-			cout << "Player One, what square would you like to play on? (1-9): ";
-			int choice = playerOne->choice();
-			if (board->getSpace(choice - 1) != empt) {
-				cout << "That space is already taken. Please choose an open square" << endl;
-				playGame(turns);
-			}
-			else {
-				marker symbol = playerOne->getSymbol();
-				board->playSquare(choice - 1, symbol);
-				marker winner = this->winner();
-				if (winner != empt) {
-					cout << "Winner: Player " << winner << endl;
-					getBoard()->printBoard();
+			// AI check for player 1
+			if (p1isAI != true)
+			{
+				cout << "Player One, what square would you like to play on? (1-9): ";
+				int choice = playerOne->choice();
+				if (board->getSpace(choice - 1) != empt) {
+					cout << "That space is already taken. Please choose an open square" << endl;
+					playGame(turns);
 				}
-				turns++;
+				else {
+					marker symbol = playerOne->getSymbol();
+					board->playSquare(choice - 1, symbol);
+					marker winner = this->winner();
+					if (winner != empt) {
+						cout << "Winner: Player " << winner << endl;
+						getBoard()->printBoard();
+					}
+					turns++;
+				}
+			}
+			else
+			{
+				int choice = playerOne->randomAI();
+				if (board->getSpace(choice) != empt)
+				{
+					playGame(turns);
+				}
+				else {
+					marker symbol = playerOne->getSymbol();
+					board->playSquare(choice, symbol);
+					marker winner = this->winner();
+					if (winner != empt) {
+						cout << "Winner: Player " << winner << endl;
+						getBoard()->printBoard();
+					}
+					turns++;
+				}
 			}
 		}
 
 		// Process turns for player 2
-		else if (turns % 2 == 0 && turns < 10) {
-			cout << "Player Two, what square would you like to play on? (1-9): ";
-			int choice = playerTwo->choice();
-			if (board->getSpace(choice - 1) != empt) {
-				cout << "That space is already taken. Please choose an open square" << endl;
-				playGame(turns);
-			}
-			else {
-				marker symbol = playerTwo->getSymbol();
-				board->playSquare(choice - 1, symbol);;
-				marker winner = this->winner();
-				if (winner != empt) {
-					cout << "Winner: Player " << winner << endl;
-					getBoard()->printBoard();
+		else if (turns % 2 == 0 && turns < 10)
+		{
+			// AI check for player 2
+			if (p2isAI != true)
+			{
+				cout << "Player Two, what square would you like to play on? (1-9): ";
+				int choice = playerTwo->choice();
+				if (board->getSpace(choice - 1) != empt)
+				{
+					cout << "That space is already taken. Please choose an open square" << endl;
+					playGame(turns);
 				}
-				turns++;
+				else
+				{
+					marker symbol = playerTwo->getSymbol();
+					board->playSquare(choice - 1, symbol);;
+					marker winner = this->winner();
+					if (winner != empt)
+					{
+						cout << "Winner: Player " << winner << endl;
+						getBoard()->printBoard();
+					}
+
+					turns++;
+				}
+			}
+			else
+			{
+				int choice = playerTwo->randomAI();
+				if (board->getSpace(choice) != empt)
+				{
+					playGame(turns);
+				}
+				else
+				{
+					marker symbol = playerTwo->getSymbol();
+					board->playSquare(choice, symbol);;
+					marker winner = this->winner();
+					if (winner != empt)
+					{
+						cout << "Winner: Player " << winner << endl;
+						getBoard()->printBoard();
+					}
+
+					turns++;
+				}
 			}
 		}
 
