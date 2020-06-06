@@ -59,6 +59,13 @@ marker Game::winner() {
 	else return empt;
 }
 
+/***************************************************************************
+ *																		   *
+ *	Function that actually handles game and order of play.				   *
+ *	Takes in turn number to determine whose turn it is to play,			   *
+ *	and to allow recursive calls										   *
+ * 																		   *
+***************************************************************************/
 
 void Game::playGame(int turns) {
 
@@ -88,6 +95,8 @@ void Game::playGame(int turns) {
 				cout << "Turn: " << turns << endl;
 				cout << "Player One, what square would you like to play on? (1-9): ";
 				int choice = playerOne->choice();
+
+				// Prevent playing in an occupied square
 				if (board->getSpace(choice - 1) != empt) {
 					playGame(turns);
 				}
@@ -106,7 +115,9 @@ void Game::playGame(int turns) {
 			else
 			{
 				int choice = playerOne->randomAI();
-				if (board->getSpace(choice) != empt)
+
+				// Prevent playing in an occupied square
+				if (board->getSpace(choice) != empt && winner != empt)
 				{
 					playGame(turns);
 				}
@@ -133,6 +144,8 @@ void Game::playGame(int turns) {
 				cout << "Turn: " << turns << endl;
 				cout << "Player Two, what square would you like to play on? (1-9): ";
 				int choice = playerTwo->choice();
+
+				// Prevent playing in an occupied square
 				if (board->getSpace(choice - 1) != empt)
 				{
 					playGame(turns);
@@ -152,7 +165,9 @@ void Game::playGame(int turns) {
 			else
 			{
 				int choice = playerTwo->randomAI();
-				if (board->getSpace(choice) != empt)
+
+				// Prevent playing in an occupied square
+				if (board->getSpace(choice) != empt && winner != empt)
 				{
 					playGame(turns);
 				}
